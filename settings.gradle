@@ -1,0 +1,2 @@
+rootProject.name='Sports Fanbook'
+include ':app'

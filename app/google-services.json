@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "191931337243",
+    "firebase_url": "https://sports-fanbook-8fcc5.firebaseio.com",
+    "project_id": "sports-fanbook-8fcc5",
+    "storage_bucket": "sports-fanbook-8fcc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191931337243:android:d8050300ec7f40e0a946be",
+        "android_client_info": {
+          "package_name": "com.yourself.sportsfanbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191931337243-30kako0qsp3nd41adu9h0kpl84r6r1ig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN42ZsOP1SJRs6F6FjHkNryjPvsDpF1Qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191931337243-30kako0qsp3nd41adu9h0kpl84r6r1ig.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
