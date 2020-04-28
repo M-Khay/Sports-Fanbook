@@ -3,6 +3,7 @@ package com.yourself.sportsfanbook.ui
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.ads.AdRequest
@@ -19,11 +20,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ActionBarCallBack, FavouriteItemClickListener {
 
+    private lateinit var toolbar: Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.setLogo(R.mipmap.ic_launcher)
+        toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         if (savedInstanceState == null)
             supportFragmentManager.beginTransaction().add(
                 R.id.container,
@@ -61,8 +65,12 @@ class MainActivity : AppCompatActivity(), ActionBarCallBack, FavouriteItemClickL
     }
 
     override fun showHideActionBarWith(title: String?, showBackButton: Boolean) {
-        supportActionBar?.title = title
-        supportActionBar?.setDisplayHomeAsUpEnabled(showBackButton)
+        toolbar.title = title
+        if(showBackButton) {
+            toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        }else{
+            toolbar.setNavigationIcon(R.mipmap.app_icon)
+        }
     }
 
     override fun onFavouriteItemClick(team: Team) {
