@@ -15,8 +15,4 @@ interface TeamDao{
     @get:Query("Select * from word_table ORDER BY name ASC")
     val result : List<Team>
 
-//    @get:Query("Select id from word_table ")
-//    val favourite :Team?
-
-
 }

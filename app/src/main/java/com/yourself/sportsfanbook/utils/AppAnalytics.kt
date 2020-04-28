@@ -10,7 +10,9 @@ object AppAnalytics {
     private var mFirebaseAnalytics: FirebaseAnalytics? = null
 
     fun init(context: Context) {
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(context)
+        if (mFirebaseAnalytics == null) {
+            mFirebaseAnalytics = FirebaseAnalytics.getInstance(context)
+        }
     }
 
     fun searchEvent(searchTerm: String) {
@@ -26,14 +28,12 @@ object AppAnalytics {
         mFirebaseAnalytics?.logEvent(Constant.FAVOURITE_EVENT, bundle)
     }
 
-
     fun selectContent(team: Team) {
         val bundle = Bundle()
         bundle.putString(Constant.SELECT_TEAM_NAME, team.name)
         bundle.putString(Constant.SELECT_TEAM_SPORT, team.sport)
         mFirebaseAnalytics?.logEvent(Constant.SELECTED_EVENT, bundle)
     }
-
 
 }
 

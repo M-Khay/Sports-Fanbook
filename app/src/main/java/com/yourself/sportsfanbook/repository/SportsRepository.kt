@@ -6,8 +6,7 @@ import com.yourself.sportsfanbook.data.team.TeamListResponse
 
 interface SportsRepository {
     suspend fun getTeamListWith(teamName: String): TeamListResponse
-    suspend fun getTeamGameHistory(teamId: Int): GameHistoryListResponse
+    suspend fun getGameHistoryForTeam(teamId: Int): GameHistoryListResponse
     suspend fun saveFavouriteTeam(team: Team)
     suspend fun deleteFavouriteTeam(team: Team)
-    suspend fun getFavouriteTeam():List<Team>
 }

@@ -9,17 +9,19 @@
 
     <!-- App TextView content -->
     <style name="TextViewStyle.Content" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
     </style>
 
     <style name="TextViewStyle.Subcontent" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
     </style>
 
     <!-- App TextView content inside List. -->
     <style name="TextViewStyle.Content.List">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">32dp</item>
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginRight">16dp</item>
         <item name="android:textAlignment">viewStart</item>
         <item name="android:maxWidth">320dp</item>
         <item name="singleLine">true</item>
@@ -31,16 +33,19 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="singleLine">true</item>
         <item name="android:layout_height">20dp</item>
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginRight">16dp</item>
         <item name="android:textAlignment">viewStart</item>
         <item name="android:maxWidth">240dp</item>
         <item name="android:gravity">bottom|start</item>
     </style>
 
+    <style name="SearchButton">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
 
-
-    <style name="toggleButton" parent="Widget.MaterialComponents.Button">
+    <style name="ToggleButton" parent="Widget.MaterialComponents.Button">
         <item name="android:buttonStyleToggle">@style/TextAppearance.AppCompat.Widget.Switch</item>
         <item name="android:textOn" />
         <item name="android:textOff" />

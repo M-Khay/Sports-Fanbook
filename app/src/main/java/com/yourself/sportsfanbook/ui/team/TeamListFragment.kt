@@ -1,7 +1,6 @@
-package com.yourself.sportsfanbook.ui
+package com.yourself.sportsfanbook.ui.team
 
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -19,13 +18,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yourself.searchyourcityweather.utils.NetworkConnectivity
 import com.yourself.sportsfanbook.R
-import com.yourself.sportsfanbook.data.ApiResult
-import com.yourself.sportsfanbook.data.Error
-import com.yourself.sportsfanbook.data.Loading
-import com.yourself.sportsfanbook.data.Success
+import com.yourself.sportsfanbook.repository.ApiResult
+import com.yourself.sportsfanbook.repository.Error
+import com.yourself.sportsfanbook.repository.Loading
+import com.yourself.sportsfanbook.repository.Success
 import com.yourself.sportsfanbook.data.team.Team
 import com.yourself.sportsfanbook.di.ComponentInjector
-import com.yourself.sportsfanbook.ui.team.ActionBarCallBack
+import com.yourself.sportsfanbook.ui.TeamListViewModel
 import com.yourself.sportsfanbook.ui.team.rv.FavouriteItemClickListener
 import com.yourself.sportsfanbook.ui.team.rv.TeamListAdapter
 import com.yourself.sportsfanbook.utils.AppAnalytics

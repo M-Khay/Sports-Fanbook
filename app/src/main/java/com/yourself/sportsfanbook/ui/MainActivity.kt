@@ -9,7 +9,9 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yourself.sportsfanbook.R
 import com.yourself.sportsfanbook.data.team.Team
+import com.yourself.sportsfanbook.ui.game.TeamGameHistoryFragment
 import com.yourself.sportsfanbook.ui.team.ActionBarCallBack
+import com.yourself.sportsfanbook.ui.team.TeamListFragment
 import com.yourself.sportsfanbook.ui.team.rv.FavouriteItemClickListener
 import com.yourself.sportsfanbook.utils.AppAnalytics
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity(), ActionBarCallBack, FavouriteItemClickL
     private val teamSelectedObserver = Observer<Team> {
         it?.let {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, TeamMatchHistoryFragment.newInstance())
+                .replace(R.id.container, TeamGameHistoryFragment.newInstance())
                 .addToBackStack(null)
                 .commit()
             AppAnalytics.selectContent(it)

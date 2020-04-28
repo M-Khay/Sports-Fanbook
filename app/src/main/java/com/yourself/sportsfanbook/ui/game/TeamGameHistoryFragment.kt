@@ -1,4 +1,4 @@
-package com.yourself.sportsfanbook.ui
+package com.yourself.sportsfanbook.ui.game
 
 import android.content.Context
 import android.os.Bundle
@@ -12,17 +12,18 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yourself.sportsfanbook.R
-import com.yourself.sportsfanbook.data.ApiResult
-import com.yourself.sportsfanbook.data.Error
-import com.yourself.sportsfanbook.data.Loading
-import com.yourself.sportsfanbook.data.Success
+import com.yourself.sportsfanbook.repository.ApiResult
+import com.yourself.sportsfanbook.repository.Error
+import com.yourself.sportsfanbook.repository.Loading
+import com.yourself.sportsfanbook.repository.Success
 import com.yourself.sportsfanbook.data.game.GameHistory
+import com.yourself.sportsfanbook.ui.TeamListViewModel
 import com.yourself.sportsfanbook.ui.team.ActionBarCallBack
 import com.yourself.sportsfanbook.ui.team.rv.GameHistoryListAdapter
 import kotlinx.android.synthetic.main.team_list_fragment.loading_content
 import kotlinx.android.synthetic.main.team_match_history_fragment.*
 
-class TeamMatchHistoryFragment : Fragment() {
+class TeamGameHistoryFragment : Fragment() {
     private lateinit var viewModel: TeamListViewModel
     private lateinit var adapter: GameHistoryListAdapter
 
@@ -30,7 +31,8 @@ class TeamMatchHistoryFragment : Fragment() {
     private lateinit var actionBarListener: ActionBarCallBack
 
     companion object {
-        fun newInstance() = TeamMatchHistoryFragment()
+        fun newInstance() =
+            TeamGameHistoryFragment()
     }
 
     override fun onAttach(context: Context) {
@@ -58,7 +60,7 @@ class TeamMatchHistoryFragment : Fragment() {
         adapter = GameHistoryListAdapter(viewModel)
         rv_match_history_list.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = this@TeamMatchHistoryFragment.adapter
+            adapter = this@TeamGameHistoryFragment.adapter
         }
 
         rv_match_history_list.addItemDecoration(

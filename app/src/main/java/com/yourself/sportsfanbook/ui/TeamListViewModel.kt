@@ -4,11 +4,12 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yourself.sportsfanbook.data.ApiResult
-import com.yourself.sportsfanbook.data.Loading
-import com.yourself.sportsfanbook.data.Success
+import com.yourself.sportsfanbook.repository.ApiResult
+import com.yourself.sportsfanbook.repository.Loading
+import com.yourself.sportsfanbook.repository.Success
 import com.yourself.sportsfanbook.data.game.GameHistory
 import com.yourself.sportsfanbook.data.team.Team
+import com.yourself.sportsfanbook.repository.Error
 import com.yourself.sportsfanbook.repository.SportsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,21 +24,16 @@ class TeamListViewModel : ViewModel() {
 
     var selectedTeam = MutableLiveData<Team>()
     var teamListState = MutableLiveData<ApiResult<List<Team>>>()
-//    var teamList: List<Team> = emptyList()
-
     var teamGameHistoryListState = MutableLiveData<ApiResult<List<GameHistory>>>()
 
     init {
-        teamListState.value = Success<List<Team>>(
-            emptyList(),
-            true
-        )
+        teamListState.value =
+            Success(emptyList(), true)
     }
 
     fun setSelectedTeam(selectedTeam: Team) {
         this.selectedTeam.value = selectedTeam
     }
-
 
     fun getSelectedTeamName(): String? {
         return selectedTeam.value?.name
@@ -45,24 +41,24 @@ class TeamListViewModel : ViewModel() {
 
 
     fun getTeamListFor(teamName: String) {
-        teamListState.value = Loading(false)
+        teamListState.value = Loading(true)
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = repository.getTeamListWith(teamName)
                 withContext(Dispatchers.Main) {
                     teamListState.value =
-                        Success<List<Team>>(
+                        Success(
                             result.teamListResponse,
-                            true
+                            false
                         )
                 }
             } catch (exception: Exception) {
                 Log.d(TAG, "Error from API ${exception.localizedMessage}")
                 withContext(Dispatchers.Main) {
                     teamListState.value =
-                        com.yourself.sportsfanbook.data.Error(
+                        Error(
                             exception,
-                            true
+                            false
                         )
                 }
             }
@@ -70,27 +66,24 @@ class TeamListViewModel : ViewModel() {
     }
 
     fun getSelectedTeamGameHistory() {
-        teamGameHistoryListState.value =
-            Loading(true)
+        teamGameHistoryListState.value = Loading(true)
         viewModelScope.launch(Dispatchers.IO) {
             try {
-
-                val result = repository.getTeamGameHistory(selectedTeam.value?.id!!)
+                val result = repository.getGameHistoryForTeam(selectedTeam.value?.id!!)
                 withContext(Dispatchers.Main) {
                     teamGameHistoryListState.value =
-                        Success<List<GameHistory>>(
+                        Success(
                             result.teamGameHistoryResponse,
-                            true
+                            false
                         )
                 }
-
             } catch (exception: Exception) {
                 Log.d(TAG, "Error from API ${exception.localizedMessage}")
                 withContext(Dispatchers.Main) {
                     teamGameHistoryListState.value =
-                        com.yourself.sportsfanbook.data.Error(
+                        Error(
                             exception,
-                            true
+                            false
                         )
                 }
             }
@@ -109,14 +102,4 @@ class TeamListViewModel : ViewModel() {
         }
     }
 
-     fun getFavouriteTeamList() {
-         viewModelScope.launch(Dispatchers.IO) {
-             val team = repository.getFavouriteTeam()
-             Log.d("SavedTeam", team.toString())
-             withContext(Dispatchers.Main) {
-                 teamListState.value =
-                     Success<List<Team>>(team, false)
-             }
-         }
-     }
 }

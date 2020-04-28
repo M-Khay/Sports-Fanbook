@@ -45,7 +45,7 @@
 
             <ToggleButton
                 android:id="@+id/favourite_Button"
-                style="@style/toggleButton"
+                style="@style/ToggleButton"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/favourite_toggle_bg"
                 android:checked="@{teamModel.favourite}"
