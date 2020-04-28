@@ -19,12 +19,21 @@ is related to. Further you can select your team from the list and watch its last
 	
 # UI 
 	Material Design Principles
-
+	Supports Dark Mode and Light Mode < See preview images>
 # Reference
 API :: https://www.thesportsdb.com/api.php
 
 UI  :: https://material.io/
 # App Screenshots
+
+# DarkMode : 
+![Search Screen](/images/search_darkmode.jpg)
+
+![Team List Screen](/images/teamlist_darkmode.jpg)
+
+![Game History Screen](/images/matchhistory_darkmode.jpg)
+
+# LightMode : 
 
 ![Search Screen](/images/search.jpg)
 
