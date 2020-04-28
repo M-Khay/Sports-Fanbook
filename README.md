@@ -4,6 +4,17 @@ This is a simple application for sports enthusiast to track their favourite team
 full or partial name and all teams names starting with the search term will display in a list view, alongwith the sports that team 
 is related to. Further you can select your team from the list and watch its last 5 games history.
 
+Future work :
+
+1. Favourites feature : When a user clicks on “heart” ie.. he adds a team to his favourite list, this favourite list will be shown every time the use opens the app and before he even searches anything in the search bar. Thus making users' life easy.
+
+2. Using the “/eventsnext/” api endpoint we can fetch for upcoming games of users favourite list and send push notifications to users when the match is about to be telecasted. 
+Ex : Fetch the next 5 events for a team https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=133604
+
+3. Match Highlights : using the  “/eventshighlights/” to show the event highlight (vidoe) 
+
+
+
 # Monetization Stratergy 
 Please read to the file on this link
 https://drive.google.com/open?id=1ccfNLeZuSTWHSJ0ilzKmRxl7gRwAcNUv
