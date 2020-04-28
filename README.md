@@ -4,6 +4,10 @@ This is a simple application for sports enthusiast to track their favourite team
 full or partial name and all teams names starting with the search term will display in a list view, alongwith the sports that team 
 is related to. Further you can select your team from the list and watch its last 5 games history.
 
+# Monetization Stratergy 
+Please read to the file on this link
+https://drive.google.com/open?id=1ccfNLeZuSTWHSJ0ilzKmRxl7gRwAcNUv
+
 # Technology Stack
 		 
    	Kotlin
